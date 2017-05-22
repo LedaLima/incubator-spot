@@ -92,6 +92,10 @@ limitations under the License.
     height: 50%;
 }
 
+.glyphiconLink{
+  font-size: 20px;
+}
+
 ::-webkit-scrollbar {
     width: 7px;
     height: 7px;

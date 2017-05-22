@@ -76,8 +76,8 @@ class NotebookStore extends ObservableWithHeadersGraphQLStore {
       SuspiciousStore.sendQuery();
     }
 
-    changeCssCls() {
-      this.completeClass = !this.completeClass;
+    changeCssCls(validate) {
+      this.completeClass = validate;
     }
 
 
@@ -99,7 +99,7 @@ SpotDispatcher.register(function (action) {
             ns.resetData();
             break;
         case SpotConstants.CHANGE_CSS_CLS:
-            ns.changeCssCls();
+            ns.changeCssCls(action.validate);
             break;
     }
 });
