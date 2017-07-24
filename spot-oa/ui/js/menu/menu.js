@@ -44,7 +44,13 @@ let menu =
                 ]
               },
               {name: 'Ingest Summary', link: '../ingest/ingest-summary.html#end-date=${date}', glyphicon: '', labelledby: '', sub: [], target: '_self'},
+              {name: '', link: '', glyphicon: 'glyphicon-cog', labelledby: 'configMenu', sub:
+                [
+                  {name: 'Manage Plugins', link: '../config/plugins.html#date=${date}', target: '_self'}
+                ]
+              },
               {name: 'Plugins', link: '', glyphicon: '', labelledby: 'pluginsMenu', sub: []}
+              // ,{name: 'Plugins', link: '../ingest/ingest-summary.html#end-date=${date}', glyphicon: '', labelledby: 'pluginsMenu', sub: []}
 
           ]
     };

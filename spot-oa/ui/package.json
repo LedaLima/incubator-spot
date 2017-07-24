@@ -42,7 +42,9 @@
     "build-flow": "cd flow/ && npm run build-all && cd ../",
     "build-dns": "cd dns/ && npm run build-all && cd ../",
     "build-proxy": "cd proxy/ && npm run build-all && cd ../",
-    "build-ingest-summary": "browserify js/ingest-summary.js | uglifyjs -cm > js/ingest-summary.bundle.min.js"
+    "build-config": "cd config/ && npm run build-all && cd ../",
+    "build-ingest-summary": "browserify js/ingest-summary.js | uglifyjs -cm > js/ingest-summary.bundle.min.js",
+    "build-menu": "browserify js/menu/menu.js | uglifyjs -cm > js/menu/menu.bundle.min.js"
   },
   "browserify": {
     "transform": [

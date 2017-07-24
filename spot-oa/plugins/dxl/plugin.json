@@ -1,0 +1,95 @@
+{
+    "_comment": "JSON VALIDATOR http://jsonlint.com/", 
+    "metadata": {
+        "status": 1, 
+        "pipeline": [
+            "flow"
+        ], 
+        "endpoint": "/dxl", 
+        "plugin_version": "1.0", 
+        "plugin_name": "VMWare OSC", 
+        "plugin_description": "VMWare Open Security Controller", 
+        "type": "scoring"
+    }, 
+    "action_schema": {
+        "formData": {
+            "select": ""
+        }, 
+        "schema": {
+            "required": [
+                "action"
+            ], 
+            "type": "object", 
+            "properties": {
+                "action": {
+                    "enumNames": [
+                        "Block Device", 
+                        "Quarantine"
+                    ], 
+                    "enum": [
+                        "securitygroup-16", 
+                        "securitygroup-20"
+                    ], 
+                    "type": "string", 
+                    "title": "OSC select option"
+                }
+            }
+        }, 
+        "method": "mutation($srcIp:String, $dstIp:String, $tag:DxlTagType, $target:String) { tagDevice(input:{srcIp:$srcIp, dstIp:$dstIp, tag:$tag, target:$target}){success}}", 
+        "uiSchema": {
+            "action": {
+                "ui:placeholder": "Choose an option"
+            }
+        }
+    }, 
+    "setup_schema": {
+        "formData": {
+            "host": "https://10.219.32.245", 
+            "password": "patito123!", 
+            "user": "admin", 
+            "plugin_name": "VMWARE OSC"
+        }, 
+        "schema": {
+            "required": [
+                "host", 
+                "user", 
+                "password", 
+                "plugin_name"
+            ], 
+            "type": "object", 
+            "properties": {
+                "b_osc_api": {
+                    "type": "string", 
+                    "title": "Open Security Controller API"
+                }, 
+                "host": {
+                    "type": "string", 
+                    "title": "Open Stack Identity Api"
+                }, 
+                "password": {
+                    "type": "string", 
+                    "title": "certified SSL"
+                }, 
+                "user": {
+                    "type": "string", 
+                    "title": "Open Stack Password"
+                }, 
+                "plugin_name": {
+                    "type": "string", 
+                    "title": "Open Security Controller Virtual Connector IP"
+                }
+            }
+        }, 
+        "method": "mutation ($b_osc_api: String, $a_compute_api_os: String, $a_identity_api_os: String, $a_project_id_os: String, $a_project_name_os: String, $a_user_os: String, $x_password_os: String, $b_virtual_connector_osc: String, $b_user_osc: String, $b_password_osc: String, $c_ssl_os: String) {osc {setupSchema(osc_api: $b_osc_api, compute_api_os: $a_compute_api_os, identity_api_os: $a_identity_api_os, project_id_os: $a_project_id_os, project_name_os: $a_project_name_os, user_os: $a_user_os, password_os: $x_password_os, virtual_connector_osc: $b_virtual_connector_osc, user_osc: $b_user_osc, password_osc: $b_password_osc, ssl_os: $c_ssl_os) {status}}}", 
+        "uiSchema": {
+            "x_password_os": {
+                "ui:widget": "password", 
+                "ui:help": "Open Stack password"
+            }, 
+            "b_password_osc": {
+                "ui:widget": "password", 
+                "ui:help": "Open Security Controller password"
+            }
+        }
+    }
+}
