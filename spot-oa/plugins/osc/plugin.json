@@ -121,7 +121,7 @@
         }
     }, 
     "metadata": {
-        "status": 0, 
+        "status": 1, 
         "pipeline": [
             "flow"
         ], 

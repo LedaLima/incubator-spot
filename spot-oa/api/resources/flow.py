@@ -23,7 +23,7 @@ def suspicious_connections(date,ip=None,limit=250):
                     dst_domain,src_rep,dst_rep
                 FROM {0}.flow_scores fs
                 LEFT JOIN {0}.flow_threat_investigation ft
-                    ON (( fs.srcip = ft.srcip) OR ( fs.dstip = ft.dstip))
+                    ON (fs.srcip = ft.srcip AND fs.dstip = ft.dstip AND fs.sport = ft.srcport AND fs.dport = ft.dstport)
                 WHERE fs.y={1} AND fs.m={2} and fs.d={3}
                     AND ( ft.srcip is NULL AND ft.dstip is NULL )
                 """).format(db,date.year,date.month,date.day)
