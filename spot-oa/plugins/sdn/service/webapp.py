@@ -27,10 +27,11 @@ def load_jupyter_server_extension(nb_app):
     import tornado.web
     import tornado.wsgi
     import sys
-    from os import path    
-    sys.path.append(path.dirname(path.dirname(__file__)))  
+    from os import path   
     
-    from resources.sdn import populateWidget
+    sys.path.append(path.dirname(path.dirname(__file__)))  
+    print sys.path 
+    from resources.osc import populateWidget
 
     populateWidget()
 
