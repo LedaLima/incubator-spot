@@ -1,9 +1,9 @@
 from os import path
 import json
 import ast
-from urllib import quote_plus
-from pymongo import MongoClient
+from urllib import quote_plus 
 
+import httplib
 import base64
 import json
 import logging as logger
@@ -13,7 +13,8 @@ import StringIO
 import requests
 from requests.auth import HTTPBasicAuth
 from urllib3 import PoolManager
- 
+
+
 
 """
 --------------------------------------------------------------------------
@@ -80,26 +81,6 @@ def populateWidget():
     except:
         return "Unable to read the file"
 
-
-
-
-from os import path
-import json
-import ast
-from urllib import quote_plus
-from pymongo import MongoClient
-
-
-import httplib
-import json
-import base64
-import logging as logger
-import os
-import sys
-import StringIO
-import requests
-from requests.auth import HTTPBasicAuth
-from urllib3 import PoolManager
 
  
 class StaticFlowPusher(object):
