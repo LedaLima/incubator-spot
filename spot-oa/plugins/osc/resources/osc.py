@@ -49,12 +49,51 @@ def perform_action(action, ip):
         "ipv4_src":"10.0.0.1",
         "active":"true"
         }
+
+    investigate1 = {
+        'switch':"00:00:00:00:00:00:00:21",
+        "name":"Rewrite IP to Honeynet",
+        "cookie":"0",
+        "priority":"1",
+        "in_port":"1",
+        "active":"true",
+        "eth_type":"0x0800",
+        "eth_src":"00:00:00:00:00:02",    #<MAC_OF_10.0.0.2>
+        "eth_dst":"00:00:00:00:00:06",    #<MAC_OF_10.0.0.6>
+        "ipv4_src":"10.0.0.2",
+        "ipv4_dst":"10.0.0.6",
+        "actions":"set_field=eth_dst->00:00:00:00:00:04,set_field=ipv4_dst->10.0.0.4,output=2"
+    }
+
+    investigate2 = {
+        'switch':"00:00:00:00:00:00:00:01",
+        "name":"S1 Redirect",
+        "cookie":"0",
+        "priority":"1",
+        "in_port":"2",
+        "active":"true",
+        "actions":"output=4"
+    }
+
+    investigate3 = {
+        'switch':"00:00:00:00:00:00:00:01",
+        "name":"S1 Redirect 2",
+        "cookie":"0",
+        "priority":"1",
+        "in_port":"4",
+        "active":"true",
+        "actions":"output=2"
+    }
     
-    if ip =='10.0.0.1':
+    if action=='ToHoneynet':
+        result = pusher.set(investigate1)
+        result = pusher.set(investigate2)
+        result = pusher.set(investigate3)
+    elif action =="BlockPort":
         result = pusher.set(flow1)
-    elif ip == '10.0.133.40':
+    elif action =="BlockMac":
         result = pusher.set(flow2)
-    else: 
+    elif action == "BlockIp":
         result = pusher.set(flow3)
 
     print result

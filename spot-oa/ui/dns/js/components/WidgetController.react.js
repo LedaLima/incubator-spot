@@ -101,7 +101,6 @@ var WidgetController = React.createClass({
     return(
       validateWidgetsToShow ? (
         <div className="col-md-4 col-md-offset-1 margin-up-down spot-frame">
-          <p><strong>Note:</strong> This is only an experimental plugin, it may work... sometimes.</p>
           <div className="panel-group overflowing" id="accordion">
             {plugins}
           </div>
