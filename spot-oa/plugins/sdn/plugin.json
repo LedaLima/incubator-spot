@@ -1,13 +1,13 @@
 {
     "_comment": "JSON VALIDATOR http://jsonlint.com/", 
     "metadata": {
-        "status": 0, 
+        "status": 1, 
         "pipeline": [
             "flow"
         ], 
         "endpoint": "/sdn", 
         "plugin_version": "1.0", 
-        "plugin_name": "SDN", 
+        "plugin_name": "SDN - DEMO", 
         "plugin_description": "SDN Plugin controller", 
         "type": "scoring"
     }, 
@@ -33,29 +33,11 @@
                 }
             }
         }, 
-        "method": "query ($action: Int!, $ip: SpotIpType!){sdn{executeAction(action: $action, ip: $ip) {action,ip,status,msg}}}", 
+        "method": "query ($action: String!, $ip: SpotIpType!){sdn{executeAction(action: $action, ip: $ip) {action,ip,status,msg}}}", 
         "uiSchema": {
             "action": {
                 "ui:placeholder": "Choose an option"
             }
         }
-    }, 
-    "setup_schema": {
-        "formData": {
-            "sdn_url": "Test12345!"
-        }, 
-        "method": "mutation($sdn_url: String ) {sdn {setupSchema(sdn_url: $sdn_url) {status}}}", 
-        "schema": {
-            "required": [
-                "sdn_url"
-            ], 
-            "type": "object", 
-            "properties": {
-                "sdn_url": {
-                    "type": "string", 
-                    "title": "SDN API url"
-                }
-            }
-        }
-    }
+    } 
 }

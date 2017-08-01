@@ -6,23 +6,23 @@ from graphql import (
 
 from queries import MutationType
 
-SDNSchema = GraphQLSchema(
+SdnSchema = GraphQLSchema(
   query=GraphQLObjectType(
-    name='SDNQueryApiType',
+    name='SdnQueryApiType',
     fields={
         'sdn': GraphQLField(
         type=MutationType,
-        description='SDN API data types',
+        description='SDN is a security orchestration platform for the software-defined data center.',
         resolver=lambda *_: {}
         )
     }
   ),
   mutation=GraphQLObjectType(
-    name='SDNMutationApiType',
+    name='SdnMutationApiType',
     fields={
       'sdn': GraphQLField(
         type=MutationType,
-        description='SDN API data types',
+        description='SDN is a security orchestration platform for the software-defined data center.',
         resolver=lambda *_: {}
       )
     }

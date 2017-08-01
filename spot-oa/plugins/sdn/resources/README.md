@@ -6,4 +6,4 @@ API Resources are the backend methods used by GraphQL to perform customized user
 
 **Classes:**
 
-* resources/sdn.py
+* resources/osc.py

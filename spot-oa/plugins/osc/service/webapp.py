@@ -28,7 +28,6 @@ def load_jupyter_server_extension(nb_app):
     import sys
     from os import path
     sys.path.append(path.dirname(path.dirname(__file__)))
-    
     from resources.osc import populateWidget
 
     populateWidget()
